@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Contact Cards</title>
+     
+  </head>
+  <body>
+      <h1>Contact Cards</h1>
+      <div id="contact-container"></div>
+  
+      <template id="contact-card">
+          <div class="contact-card">
+              <img class="contact-image" src="" alt="Profile Picture">
+              <div class="contact-info">
+                  <h2 class="contact-name"></h2>
+                  <p class="contact-email"></p>
+                  <p class="contact-phone"></p>
+              </div>
+          </div>
+      </template>
+  
+      
+  </body>
+  </html>
+  <style>
+  body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+  }
+  
+  h1 {
+      text-align: center;
+  }
+  
+  #contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+  }
+  
+  .contact-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      padding: 15px;
+      text-align: center;
+  }
+  
+  .contact-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+  }
+  
+  .contact-info {
+      font-size: 14px;
+  }
+  
+  .contact-name {
+      margin: 0;
+      font-size: 18px;
+      color: #333;
+  }
+  
+  .contact-email, .contact-phone {
+      margin: 5px 0;
+      color: #555;
+  }
+  </style>
+  <script>document.addEventListener('DOMContentLoaded', () => {
+      const template = document.getElementById('contact-card');
+      const container = document.getElementById('contact-container');
+  
+      const contacts = [
+          {
+              image: 'https://i3.wp.com/kartinki.pics/pics/uploads/posts/2022-08/1661165773_1-kartinkin-net-p-oboi-bodibilding-krasivo-1.jpg?resize=768%2C768&ssl=1',
+              name: 'remind',
+              email: 'remind@example.com',
+              phone: '+1 234 567 890'
+          },
+          {
+              image: 'https://wallpapers.com/images/hd/arnold-wallpaper-cqgf2mtqp138bv11.jpg',
+              name: 'fizy comedy',
+              email: 'olga.plugger@example.com',
+              phone: '+1 234 567 890'
+          },
+          {
+              image: 'https://i.ytimg.com/vi/QNKjsqedkSM/maxresdefault.jpg',
+              name: 'canek daddy',
+              email: 'alice.mommy@example.com',
+              phone: '+1 234 567 890'
+          }
+      ];
+  
+      contacts.forEach(contact => {
+          const cardContent = template.content.cloneNode(true);
+          cardContent.querySelector('.contact-image').src = contact.image;
+          cardContent.querySelector('.contact-name').textContent = contact.name;
+          cardContent.querySelector('.contact-email').textContent = contact.email;
+          cardContent.querySelector('.contact-phone').textContent = contact.phone;
+  
+          container.appendChild(cardContent);
+      });
+  });
+  </script>
